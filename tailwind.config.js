@@ -1,6 +1,8 @@
-module.exports = {
+/** @type {import('tailwindcss').Config} */
+export default {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -8,7 +10,7 @@ module.exports = {
         'gradient': 'gradient 3s ease infinite',
         'gradient-xy': 'gradient-xy 5s ease infinite',
         'shimmer': 'shimmer 2s infinite',
-        'float': 'float 6s ease-in-out infinite',
+        'float': 'float 20s infinite linear',
       },
       keyframes: {
         gradient: {
@@ -24,8 +26,8 @@ module.exports = {
           '100%': { backgroundPosition: '200% center' },
         },
         float: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-20px)' },
+          '0%': { transform: 'translateY(0) rotate(0deg)' },
+          '100%': { transform: 'translateY(-1000px) rotate(720deg)' },
         },
       },
     },
