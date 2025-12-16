@@ -203,7 +203,7 @@ export default function Portfolio() {
               <div className="flex gap-3 pt-4 w-full">
                 <motion.a 
                   whileHover={{ scale: 1.2, y: -5 }}
-                  href="https://github.com" 
+                  href="https://github.com/samuelmitiku393" 
                   className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -221,7 +221,7 @@ export default function Portfolio() {
                 </motion.a>
                 <motion.a 
                   whileHover={{ scale: 1.2, y: -5 }}
-                  href="mailto:your-email@example.com" 
+                  href="mailto:Samuelmitiku393@gmail.com" 
                   className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors"
                 >
                   <FiMail className="w-6 h-6" />
@@ -513,7 +513,7 @@ export default function Portfolio() {
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="mailto:your-email@example.com"
+                href="mailto:Samuelmitiku393@gmail.com"
                 className="px-10 py-4 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 font-semibold text-lg shadow-xl shadow-indigo-500/30 flex items-center gap-3 group"
               >
                 <FiMail />
@@ -523,7 +523,7 @@ export default function Portfolio() {
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="https://github.com"
+                href="https://github.com/samuelmitiku393"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-10 py-4 rounded-2xl border-2 border-indigo-400 hover:bg-indigo-400 hover:text-black transition-all duration-300 font-semibold text-lg flex items-center gap-3 group"
@@ -542,9 +542,9 @@ export default function Portfolio() {
               className="grid md:grid-cols-3 gap-6 pt-16"
             >
               {[
-                { icon: "📧", title: "Email", value: "hello@example.com", link: "mailto:hello@example.com" },
+                { icon: "📧", title: "Email", value: "samuelmitiku393@gmail.com", link: "samuelmitiku393@gmail.com" },
                 { icon: "💼", title: "LinkedIn", value: "linkedin.com/in/you", link: "https://linkedin.com" },
-                { icon: "🔗", title: "GitHub", value: "github.com/you", link: "https://github.com" }
+                { icon: "🔗", title: "GitHub", value: "github.com/samuelmitiku393", link: "https://github.com/samuelmitiku393" }
               ].map((item, index) => (
                 <motion.a
                   key={item.title}
