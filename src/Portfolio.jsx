@@ -146,7 +146,7 @@ export default function Portfolio() {
               >
                 Hi, I'm{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-400 animate-gradient">
-                  a MERN Stack Developer
+                  SAMUEL MITIKU 
                 </span>
               </motion.h1>
             </div>
@@ -157,7 +157,7 @@ export default function Portfolio() {
               transition={{ delay: 0.6 }}
               className="text-gray-300 text-lg md:text-xl leading-relaxed"
             >
-              I craft <span className="text-indigo-300 font-semibold">immersive digital experiences</span> with cutting-edge technologies. From pixel-perfect UIs to scalable backends, I bridge design and functionality.
+              <span className="text-indigo-300 font-semibold">A MERN Stack Developer </span> I craft immersive digital experiences with cutting-edge technologies. From pixel-perfect UIs to scalable backends, I bridge design and functionality.
             </motion.p>
 
             {/* Tech stack icons */}
