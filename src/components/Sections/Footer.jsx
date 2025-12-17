@@ -1,12 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import SocialLinks from '../UI/SocialLinks';
 
 const Footer = () => {
   return (
     <footer className="py-8 px-4 border-t border-gray-800">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          {/* Left Text */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -20,15 +20,17 @@ const Footer = () => {
             </p>
           </motion.div>
 
-          <SocialLinks />
-
+          {/* Back to Top */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             className="text-gray-500 text-sm"
           >
-            <a href="#hero" className="hover:text-indigo-400 transition-colors">
+            <a
+              href="#hero"
+              className="hover:text-indigo-400 transition-colors"
+            >
               Back to Top ↑
             </a>
           </motion.div>

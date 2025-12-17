@@ -9,19 +9,19 @@ const Contact = () => {
     {
       icon: <FiMail />,
       title: "Email",
-      value: "hello@example.com",
-      link: "mailto:hello@example.com"
+      value: "Samuelmitiku393@gmail.com",
+      link: "Samuelmitiku393@gmail.com"
     },
     {
       icon: <FiPhone />,
       title: "Phone",
-      value: "+1 (555) 123-4567",
-      link: "tel:+15551234567"
+      value: "+251953333287",
+      link: "tel: +251953333287"
     },
     {
       icon: <FiMapPin />,
       title: "Location",
-      value: "San Francisco, CA",
+      value: "Addis Ababa, Ethiopia",
       link: "#"
     }
   ];
@@ -72,7 +72,7 @@ const Contact = () => {
               <input
                 type="text"
                 className="w-full px-4 py-3 rounded-xl bg-white/5 border border-gray-700 focus:border-indigo-500 focus:outline-none transition-colors"
-                placeholder="John Doe"
+                placeholder="Abebe Damtew"
               />
             </div>
             <div>
@@ -82,7 +82,7 @@ const Contact = () => {
               <input
                 type="email"
                 className="w-full px-4 py-3 rounded-xl bg-white/5 border border-gray-700 focus:border-indigo-500 focus:outline-none transition-colors"
-                placeholder="john@example.com"
+                placeholder="AbeDamte@example.com"
               />
             </div>
           </div>

@@ -1,24 +1,48 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
+
+const PARTICLE_COUNT = 24;
 
 const BackgroundEffects = () => {
-  useEffect(() => {
-    const particlesContainer = document.getElementById('particles');
-    if (!particlesContainer) return;
+  const particlesRef = useRef(null);
 
-    for (let i = 0; i < 30; i++) {
-      const particle = document.createElement('div');
+  useEffect(() => {
+    const container = particlesRef.current;
+    if (!container) return;
+
+    // Clear existing particles (important for strict mode)
+    container.innerHTML = '';
+
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      const particle = document.createElement('span');
+
+      const size = Math.random() * 6 + 4; // 4px – 10px
+      const duration = Math.random() * 20 + 20; // 20s – 40s
+
       particle.className = 'particle';
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
       particle.style.left = `${Math.random() * 100}%`;
       particle.style.top = `${Math.random() * 100}%`;
-      particle.style.animationDelay = `${Math.random() * 5}s`;
-      particlesContainer.appendChild(particle);
+      particle.style.animationDuration = `${duration}s`;
+      particle.style.animationDelay = `${Math.random() * 10}s`;
+
+      container.appendChild(particle);
     }
   }, []);
 
   return (
     <>
-      <div id="particles" className="fixed inset-0 pointer-events-none z-0" />
-      <div className="fixed top-0 left-0 w-full h-full bg-gradient-to-br from-indigo-900/10 via-transparent to-purple-900/10" />
+      {/* Floating Particles */}
+      <div
+        ref={particlesRef}
+        className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
+      />
+
+      {/* Soft Gradient Mesh */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-indigo-500/10 blur-3xl rounded-full" />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-purple-500/10 blur-3xl rounded-full" />
+      </div>
     </>
   );
 };

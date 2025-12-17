@@ -1,7 +1,7 @@
 export const socialLinks = [
   {
     platform: "github",
-    url: "https://github.com/yourusername",
+    url: "https://github.com/samuelmitiku393",
     label: "GitHub Profile"
   },
   {
@@ -16,7 +16,7 @@ export const socialLinks = [
   },
   {
     platform: "email",
-    url: "mailto:hello@example.com",
+    url: "samuelmitiku393@gmail.com",
     label: "Send Email"
   }
 ];

@@ -4,21 +4,21 @@ export const aboutData = {
     {
       year: "2023 - Present",
       role: "Full Stack Developer",
-      company: "Tech Company",
-      description: "Building scalable web applications using React, Node.js, and MongoDB."
+      company: "4-3-3 Sport in Ethiopia",
+      description: "Building scalable web applications and Telegram Mini apps using React, Node.js, and MongoDB."
     },
     {
-      year: "2021 - 2023",
-      role: "Frontend Developer",
-      company: "Digital Agency",
-      description: "Created responsive and interactive user interfaces for various clients."
+      year: "2024",
+      role: "Fullstack Developer",
+      company: "INSA",
+      description: "Created responsive and interactive learning management system interfaces."
     }
   ],
   education: [
     {
-      degree: "Bachelor's in Computer Science",
-      institution: "University of Technology",
-      year: "2017 - 2021"
+      degree: "Bachelor's in Information Systems",
+      institution: "Haramaya University",
+      year: "2022 - 2025"
     }
   ]
 };
