@@ -13,7 +13,7 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <p className="text-gray-500 text-sm">
-              © {new Date().getFullYear()} MERN Stack Portfolio. All rights reserved.
+              © {new Date().getFullYear()} Samuel M. All rights reserved.
             </p>
             <p className="text-gray-600 text-sm mt-1">
               Built with React, Tailwind CSS & Framer Motion

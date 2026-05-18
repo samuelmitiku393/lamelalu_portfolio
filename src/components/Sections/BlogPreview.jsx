@@ -6,13 +6,26 @@ import SectionHeader from '../Shared/SectionHeader';
 export default function BlogPreview() {
   const articles = [
     {
-      title: "Building Scalable React Applications",
-      excerpt: "Learn how to structure large-scale React applications for maintainability and performance.",
-      readTime: "8 min read",
-      date: "Mar 15, 2024",
-      tags: ["React", "Performance", "Architecture"]
+      title: "Demystifying Telegram Mini Apps (TMAs)",
+      excerpt: "A comprehensive guide on building, securing, and optimizing high-performance web applications inside the Telegram ecosystem.",
+      readTime: "6 min read",
+      date: "May 10, 2026",
+      tags: ["Telegram SDK", "WebApps", "Security"]
     },
-    // ... more articles
+    {
+      title: "Designing Robust Role-Based Access Controls (RBAC)",
+      excerpt: "How to structure secure middleware, dynamic router permissions, and profile sync patterns in Express.js and Prisma.",
+      readTime: "9 min read",
+      date: "Apr 28, 2026",
+      tags: ["Node.js", "Security", "Prisma", "RBAC"]
+    },
+    {
+      title: "Optimizing React Performance with Framer Motion",
+      excerpt: "A deep dive into reducing rendering overhead, structural best practices, and fluid animations for responsive portfolios.",
+      readTime: "8 min read",
+      date: "Mar 15, 2026",
+      tags: ["React", "Performance", "Framer Motion"]
+    }
   ];
 
   return (

@@ -1,10 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiMail, FiMapPin, FiPhone } from 'react-icons/fi';
 import SectionHeader from '../Shared/SectionHeader';
 import SocialLinks from '../UI/SocialLinks';
 
 const Contact = () => {
+  const [status, setStatus] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setStatus(null);
+
+    const form = e.target;
+    const data = new FormData(form);
+
+    try {
+      // IMPORTANT: Replace 'YOUR_FORMSPREE_ID' with your actual form ID from Formspree
+      const response = await fetch("https://formspree.io/f/xbdbjpvj", {
+        method: "POST",
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        form.reset();
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const contactInfo = [
     {
       icon: <FiMail />,
@@ -58,6 +92,7 @@ const Contact = () => {
 
         {/* Contact Form */}
         <motion.form
+          onSubmit={handleSubmit}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -71,6 +106,8 @@ const Contact = () => {
               </label>
               <input
                 type="text"
+                name="name"
+                required
                 className="w-full px-4 py-3 rounded-xl bg-white/5 border border-gray-700 focus:border-indigo-500 focus:outline-none transition-colors"
                 placeholder="Abebe Damtew"
               />
@@ -81,6 +118,8 @@ const Contact = () => {
               </label>
               <input
                 type="email"
+                name="email"
+                required
                 className="w-full px-4 py-3 rounded-xl bg-white/5 border border-gray-700 focus:border-indigo-500 focus:outline-none transition-colors"
                 placeholder="AbeDamte@example.com"
               />
@@ -92,6 +131,8 @@ const Contact = () => {
             </label>
             <input
               type="text"
+              name="subject"
+              required
               className="w-full px-4 py-3 rounded-xl bg-white/5 border border-gray-700 focus:border-indigo-500 focus:outline-none transition-colors"
               placeholder="Project Inquiry"
             />
@@ -101,18 +142,43 @@ const Contact = () => {
               Message
             </label>
             <textarea
+              name="message"
+              required
               rows="5"
               className="w-full px-4 py-3 rounded-xl bg-white/5 border border-gray-700 focus:border-indigo-500 focus:outline-none transition-colors resize-none"
               placeholder="Tell me about your project..."
             ></textarea>
           </div>
+
+          {status === 'success' && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="p-4 rounded-xl bg-green-500/10 border border-green-500/50 text-green-400 text-center"
+            >
+              Message sent successfully! I'll get back to you soon.
+            </motion.div>
+          )}
+
+          {status === 'error' && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="p-4 rounded-xl bg-red-500/10 border border-red-500/50 text-red-400 text-center"
+            >
+              Oops! There was a problem submitting your form. Please try again.
+            </motion.div>
+          )}
+
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             type="submit"
-            className="w-full py-4 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 transition-all font-semibold text-lg"
+            disabled={isSubmitting}
+            className={`w-full py-4 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 transition-all font-semibold text-lg flex justify-center items-center ${isSubmitting ? 'opacity-75 cursor-not-allowed' : 'hover:from-indigo-600 hover:to-purple-700'
+              }`}
           >
-            Send Message
+            {isSubmitting ? 'Sending...' : 'Send Message'}
           </motion.button>
         </motion.form>
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { BackgroundEffects, CustomCursor, NavigationDots, ScrollIndicator } from './components/Layout';
-import { Hero, Projects, Skills, About, Contact, Footer } from './components/Sections';
+import { Hero, Projects, Skills, About, Testimonials, BlogPreview, Contact, Footer } from './components/Sections';
 
 function App() {
   return (
@@ -14,8 +14,10 @@ function App() {
       <main>
         <Hero />
         <About />
-        <Projects />
         <Skills />
+        <Projects />
+        <Testimonials />
+        <BlogPreview />
         <Contact />
       </main>
       

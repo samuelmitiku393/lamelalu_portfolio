@@ -6,14 +6,29 @@ import SectionHeader from '../Shared/SectionHeader';
 export default function Testimonials() {
   const testimonials = [
     {
+      name: "Kidus Tessema",
+      role: "Lead Architect",
+      company: "4-3-3 Sport",
+      content: "Samuel is an exceptionally fast learner and a dedicated full-stack developer. He built our web portal and mini app integrations flawlessly under tight deadlines.",
+      rating: 5,
+      image: "https://randomuser.me/api/portraits/men/44.jpg"
+    },
+    {
       name: "Alex Johnson",
       role: "Product Manager",
       company: "TechCorp",
-      content: "Samuel delivered exceptional work on our project. His attention to detail and problem-solving skills are outstanding.",
+      content: "Samuel delivered exceptional work on our dashboard integration. His attention to detail, clean code practices, and problem-solving skills are outstanding.",
       rating: 5,
       image: "https://randomuser.me/api/portraits/men/32.jpg"
     },
-    // ... more testimonials
+    {
+      name: "Elena Rostova",
+      role: "Co-Founder",
+      company: "Wetten App",
+      content: "Samuel helped us build and optimize our Telegram Mini App. His mastery of WebSockets, real-time API integrations, and clean MERN stack architecture is outstanding.",
+      rating: 5,
+      image: "https://randomuser.me/api/portraits/women/44.jpg"
+    }
   ];
 
   return (
