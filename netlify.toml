@@ -20,6 +20,13 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Inline PDF display
+[[headers]]
+  for = "/*.pdf"
+  [headers.values]
+    Content-Type = "application/pdf"
+    Content-Disposition = "inline"
+
 # SPA fallback
 [[redirects]]
   from = "/*"

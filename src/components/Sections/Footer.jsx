@@ -15,6 +15,13 @@ export default function Footer() {
                 GitHub
               </a>
             </li>
+            {site.goodreads && (
+              <li>
+                <a href={site.goodreads} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-paper">
+                  Goodreads
+                </a>
+              </li>
+            )}
             <li>
               <a href={`mailto:${site.email}`} className="transition-colors hover:text-paper">
                 Email

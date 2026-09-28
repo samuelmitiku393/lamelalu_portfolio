@@ -16,11 +16,13 @@ export const site = {
   resume: '/Samuel-Mitiku-CV.pdf',
   github: 'https://github.com/samuelmitiku393',
   linkedin: 'https://www.linkedin.com/in/samuel-m-eshetu-475b98237/',
+  goodreads: 'https://www.goodreads.com/user/show/189904195-samuel-mitiku',
 };
 
 export const socialLinks = [
   { platform: 'github', url: site.github, label: 'GitHub profile' },
   { platform: 'linkedin', url: site.linkedin, label: 'LinkedIn profile' },
+  { platform: 'goodreads', url: site.goodreads, label: 'Goodreads profile' },
   { platform: 'email', url: `mailto:${site.email}`, label: 'Send email' },
 ];
 

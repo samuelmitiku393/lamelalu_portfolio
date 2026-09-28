@@ -1,4 +1,4 @@
-import { FiArrowRight, FiDownload } from 'react-icons/fi';
+import { FiArrowRight, FiFileText } from 'react-icons/fi';
 import Reveal from '../Shared/Reveal';
 import SocialLinks from '../UI/SocialLinks';
 import { site } from '../../data/site';
@@ -46,11 +46,12 @@ export default function Hero() {
             </a>
             <a
               href={site.resume}
-              download
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-lg border border-ink-600 px-5 py-3 font-medium text-paper transition-colors hover:border-accent hover:text-accent"
             >
-              <FiDownload aria-hidden="true" />
-              Download résumé
+              <FiFileText aria-hidden="true" />
+              View résumé
             </a>
             <SocialLinks className="ml-1 hidden sm:flex" />
           </div>

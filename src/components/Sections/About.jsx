@@ -42,7 +42,8 @@ export default function About() {
             <Fact label="Career goal" value={site.careerGoal} />
             <Fact label="GitHub" value="samuelmitiku393" href={site.github} />
             <Fact label="LinkedIn" value="samuel-m-eshetu" href={site.linkedin} />
-            <Fact label="Résumé" value="Download PDF" href={site.resume} />
+            {site.goodreads && <Fact label="Goodreads" value="Goodreads profile" href={site.goodreads} />}
+            <Fact label="Résumé" value="View PDF" href={site.resume} />
             <div className="border-b border-ink-700/60 pb-3 last:border-0 last:pb-0">
               <dt className="font-mono text-xs uppercase tracking-wider text-paper-faint">Languages</dt>
               <dd className="mt-1 space-y-0.5">
@@ -61,8 +62,14 @@ export default function About() {
 }
 
 function Fact({ label, value, href }) {
+  const isExternal = href && (href.startsWith('http') || href.endsWith('.pdf'));
   const content = href ? (
-    <a href={href} className="text-paper transition-colors hover:text-accent">
+    <a
+      href={href}
+      target={isExternal ? '_blank' : undefined}
+      rel={isExternal ? 'noopener noreferrer' : undefined}
+      className="text-paper transition-colors hover:text-accent"
+    >
       {value}
     </a>
   ) : (

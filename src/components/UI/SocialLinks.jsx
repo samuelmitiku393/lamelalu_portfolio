@@ -1,9 +1,11 @@
 import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
+import { FaGoodreadsG } from 'react-icons/fa';
 import { socialLinks } from '../../data/site';
 
 const iconMap = {
   github: FiGithub,
   linkedin: FiLinkedin,
+  goodreads: FaGoodreadsG,
   email: FiMail,
 };
 
