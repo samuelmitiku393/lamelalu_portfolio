@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Inter, Arial, sans-serif;
+    color: #0f172a; font-size: 12.5px; line-height: 1.45; padding: 36px 46px;
+  }
+  header { border-bottom: 2px solid #0e7490; padding-bottom: 12px; }
+  h1 { font-size: 27px; letter-spacing: -0.5px; }
+  .role { font-size: 14px; color: #334155; margin-top: 3px; }
+  .meta { font-size: 10.5px; color: #475569; margin-top: 8px; line-height: 1.7; }
+  .meta a { color: #475569; text-decoration: none; }
+  h2 {
+    font-size: 11.5px; text-transform: uppercase; letter-spacing: 1.2px; color: #0e7490;
+    border-bottom: 1px solid #cbd5e1; padding-bottom: 3px; margin: 18px 0 8px;
+  }
+  .item { margin-bottom: 11px; }
+  .item-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .item-title { font-weight: 600; font-size: 13px; }
+  .item-sub { color: #334155; }
+  .date { color: #64748b; font-size: 11px; white-space: nowrap; }
+  .tag { display: inline-block; border: 1px solid #cbd5e1; border-radius: 4px; padding: 1px 6px; margin: 3px 4px 0 0; font-size: 10px; color: #334155; }
+  .chip { display: inline-block; background: #f1f5f9; border-radius: 3px; padding: 1px 6px; margin: 2px 4px 0 0; font-size: 10px; color: #334155; }
+  ul { margin: 3px 0 0 16px; }
+  li { margin-bottom: 2px; }
+  .summary { color: #334155; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+  .label { color: #64748b; }
+  .ref { color: #64748b; font-size: 11px; font-style: italic; }
+  @page { size: A4; margin: 0; }
+  /* Keep section headings attached to the content they introduce, and never
+     split a single project/experience block across a page. */
+  h2 { break-after: avoid; page-break-after: avoid; }
+  .item { break-inside: avoid; page-break-inside: avoid; }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Samuel Mitiku Eshetu</h1>
+    <p class="role">Full-Stack Developer &amp; AI Engineer — React · Node.js · Python · Machine Learning</p>
+    <p class="meta">
+      <span>Addis Ababa, Ethiopia</span> ·
+      <span>samuelmitiku393@gmail.com</span> ·
+      <span>+251 912 181 590</span> ·
+      <span>github.com/samuelmitiku393</span> ·
+      <span>linkedin.com/in/samuel-m-eshetu-475b98237</span><br>
+      <span class="label">Career goal:</span> Self-employment &nbsp;·&nbsp;
+      <span class="label">Availability:</span> Immediately
+    </p>
+  </header>
+
+  <h2>Professional Summary</h2>
+  <p class="summary">
+    Information Systems graduate and Intelligent Data &amp; AI Engineering trainee with practical
+    experience in full-stack web development, machine learning, data analysis, and AI-driven
+    application development. Experienced in building practical software solutions, digital products,
+    and data-driven applications through academic, professional, and independent projects. Seeking
+    opportunities to apply AI, software engineering, and problem-solving skills to build scalable
+    technology solutions and grow toward AI engineering and technology entrepreneurship.
+  </p>
+
+  <h2>Education</h2>
+  <div class="item">
+    <div class="item-head">
+      <div>
+        <p class="item-title">B.Sc. in Information Systems</p>
+        <p class="item-sub">Haramaya University</p>
+      </div>
+      <p class="date">Graduated July 2025</p>
+    </div>
+  </div>
+
+  <h2>Training</h2>
+  <div class="item">
+    <div class="item-head">
+      <div>
+        <p class="item-title">Intelligent Data &amp; AI Engineering</p>
+        <p class="item-sub">Qiyas</p>
+      </div>
+      <p class="date">30 May 2026 — 24 Sep 2026</p>
+    </div>
+    <p class="item-sub">Key competencies:</p>
+    <div>
+      <span class="chip">Python for data analysis &amp; ML</span>
+      <span class="chip">Data preprocessing, cleaning, exploration, visualization</span>
+      <span class="chip">Supervised &amp; unsupervised learning</span>
+      <span class="chip">Regression &amp; classification</span>
+      <span class="chip">Model evaluation &amp; performance analysis</span>
+      <span class="chip">Time-series forecasting &amp; feature engineering</span>
+      <span class="chip">NLP &amp; text classification</span>
+      <span class="chip">Model deployment &amp; application integration</span>
+      <span class="chip">Jupyter, pandas, NumPy, scikit-learn</span>
+    </div>
+  </div>
+
+  <h2>Work Experience</h2>
+  <div class="item">
+    <div class="item-head">
+      <div>
+        <p class="item-title">Freelance Growth Engineer</p>
+        <p class="item-sub">4-3-3 Sport in Ethiopia</p>
+      </div>
+      <p class="date">Jul 2025 — Present</p>
+    </div>
+    <ul>
+      <li>Develop and maintain digital products and web-based tools supporting the organization's sports media and audience-growth operations.</li>
+      <li>Manage and optimize Telegram-based digital platforms, content distribution, and audience engagement initiatives.</li>
+      <li>Build Telegram Mini Apps and supporting web applications to improve user interaction and digital services.</li>
+      <li>Combine software development, automation, analytics, and growth strategies to expand digital reach and improve platform functionality.</li>
+    </ul>
+  </div>
+  <div class="item">
+    <div class="item-head">
+      <div>
+        <p class="item-title">Full Stack Web Developer</p>
+        <p class="item-sub">INSA</p>
+      </div>
+      <p class="date">Jul 2024 — Sep 2024</p>
+    </div>
+    <ul>
+      <li>Developed a Learning Management System (LMS) to support online learning and academic management workflows.</li>
+      <li>Built responsive frontend interfaces and backend functionality using modern web development technologies.</li>
+      <li>Implemented role-based functionality for students, teachers, and administrators.</li>
+      <li>Worked across frontend, backend, database, and API components to deliver an integrated web application.</li>
+    </ul>
+  </div>
+
+  <h2>Technical &amp; Practical Skills</h2>
+  <div class="grid2">
+    <div>
+      <p><span class="label">Programming:</span> Python, JavaScript, SQL</p>
+      <p><span class="label">AI &amp; Machine Learning:</span> scikit-learn, regression, classification, clustering, NLP, time-series forecasting, model evaluation</p>
+      <p><span class="label">Data:</span> pandas, NumPy, data preprocessing, exploratory data analysis, data visualization</p>
+    </div>
+    <div>
+      <p><span class="label">Frontend:</span> React, Redux Toolkit, Tailwind CSS, Vite, responsive UI development</p>
+      <p><span class="label">Backend:</span> Node.js, Express.js, FastAPI, REST APIs</p>
+      <p><span class="label">Databases:</span> PostgreSQL, MongoDB</p>
+    </div>
+  </div>
+  <div class="grid2" style="margin-top:6px">
+    <div>
+      <p><span class="label">AI/ML Development:</span> Jupyter Notebook, model training, feature engineering, model serialization and deployment</p>
+    </div>
+    <div>
+      <p><span class="label">Tools &amp; Platforms:</span> Git, GitHub, Docker, Telegram Bot API, Telegram Mini Apps</p>
+    </div>
+  </div>
+
+  <h2>Projects / Practical Assignments</h2>
+  <div class="item">
+    <div class="item-head">
+      <div>
+        <p class="item-title">ModelForge — Machine Learning Model Development Platform</p>
+        <p class="item-sub">Experiment with, evaluate, and serve regression and classification models</p>
+      </div>
+    </div>
+    <ul>
+      <li>Developed a machine learning platform for experimenting with and evaluating multiple regression and classification algorithms.</li>
+      <li>Implemented data preprocessing, feature engineering, model training, performance comparison, and model serialization.</li>
+      <li>Worked examples: house-price prediction (regression) and SMS spam classification (NLP) in Jupyter notebooks.</li>
+      <li>Trained scikit-learn pipelines are served for real-time and batched predictions through a FastAPI backend behind JWT authentication with admin, developer, and viewer roles.</li>
+    </ul>
+    <div>
+      <span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">FastAPI</span><span class="tag">pandas</span><span class="tag">Jupyter</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-head">
+      <div>
+        <p class="item-title">Turumba — Telegram Mini App for Advertising Operations</p>
+        <p class="item-sub">Manage advertisements across multiple Telegram channels</p>
+      </div>
+    </div>
+    <ul>
+      <li>Developed a full-stack Telegram Mini App that enables marketing teams to manage advertisements across multiple Telegram channels.</li>
+      <li>Implemented advertisement creation, editing, scheduling, conflict detection, role-based team collaboration, and automated Telegram notifications.</li>
+      <li>Added revenue and channel-performance analytics plus monthly and annual Excel report generation delivered to admin DMs.</li>
+      <li>Built as an npm monorepo with React, Vite, Node.js, Express, Prisma, PostgreSQL, and the Telegram Bot API.</li>
+    </ul>
+    <div>
+      <span class="tag">React</span><span class="tag">Vite</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Prisma</span><span class="tag">PostgreSQL</span><span class="tag">Telegram Bot API</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-head">
+      <div>
+        <p class="item-title">Learning Management System — INSA Internship</p>
+        <p class="item-sub">Integrated academic management MVP for students, teachers, and administrators</p>
+      </div>
+    </div>
+    <ul>
+      <li>A full-stack Learning Management System designed to support interactions between students, teachers, and administrators.</li>
+      <li>Worked on frontend interfaces, backend services, database integration, and role-based functionality to create an integrated academic management MVP.</li>
+    </ul>
+    <div>
+      <span class="tag">JavaScript</span><span class="tag">REST APIs</span><span class="tag">SQL</span><span class="tag">Role-based access</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-head">
+      <div>
+        <p class="item-title">Merkeb ERP Mini App</p>
+        <p class="item-sub">ERP access inside Telegram with verified identities</p>
+      </div>
+    </div>
+    <ul>
+      <li>Verified Telegram initData server-side with HMAC-SHA256 before returning any ERP data.</li>
+      <li>Mapped Telegram identities to ERP accounts and bound the UI to Telegram theme variables.</li>
+    </ul>
+    <div>
+      <span class="tag">React</span><span class="tag">Express</span><span class="tag">Telegram WebApp SDK</span><span class="tag">HMAC-SHA256</span>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-head">
+      <div>
+        <p class="item-title">4-3-3 Sport Ethiopia</p>
+        <p class="item-sub">Sports news portal with a Redux Toolkit data layer</p>
+      </div>
+    </div>
+    <ul>
+      <li>Built the frontend with RTK Query for normalized fetching, caching, and invalidation.</li>
+      <li>Mobile-first reading experience tuned for a match-day traffic profile.</li>
+    </ul>
+    <div>
+      <span class="tag">React</span><span class="tag">Redux Toolkit</span><span class="tag">Vite</span><span class="tag">REST APIs</span>
+    </div>
+  </div>
+
+  <h2>Certifications / Additional Training</h2>
+  <ul>
+    <li>ALX Ventures Founders Academy Program — ALX Ethiopia, Jul 2024</li>
+    <li>English Access Micro-Scholarship Completion — U.S. Department of State, Oct 2019</li>
+  </ul>
+
+  <h2>Languages</h2>
+  <ul>
+    <li>Amharic — Native</li>
+    <li>English — Professional working proficiency</li>
+    <li>Afaan Oromoo — Intermediate</li>
+  </ul>
+
+  <h2>Reference</h2>
+  <p class="ref">Available upon request.</p>
+</body>
+</html>

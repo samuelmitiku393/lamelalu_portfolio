@@ -1,172 +1,91 @@
+/* Global styles — Tailwind layers, design tokens, base element styles, and
+   the two rules (focus visibility, reduced motion) that a11y requires. */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --ink-950: #070b12;
+  --ink-900: #0a0f1a;
+  --ink-800: #131c2e;
+  --ink-700: #1c2740;
+  --paper: #e2e8f0;
+  --paper-dim: #a9b7c9;
+  --paper-faint: #8496ad;
+  --accent: #22d3ee;
+  --accent-dim: #67e8f9;
 }
 
-#root {
-  width: 100%;
-  min-height: 100vh;
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 body {
   margin: 0;
   min-width: 320px;
-  min-height: 100vh;
+  background-color: var(--ink-900);
+  color: var(--paper);
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
-/* ----------------------------
-   Subtle Grid Background
------------------------------ */
-.bg-grid {
-  background-image:
-    linear-gradient(rgba(99, 102, 241, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(99, 102, 241, 0.08) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+/* Visible, consistent keyboard focus everywhere (WCAG 2.2 / 2.4.11). */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
-/* ----------------------------
-   Floating Particles
------------------------------ */
-.particle {
+::selection {
+  background: rgba(34, 211, 238, 0.25);
+  color: #f8fafc;
+}
+
+/* Slim, palette-matched scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ink-950);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ink-700);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-600);
+}
+
+/* Skip link — visually hidden until focused. */
+.skip-link {
   position: absolute;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.6),
-    rgba(255, 255, 255, 0.15)
-  );
-  opacity: 0.12;
-  animation: floatParticle linear infinite;
-  will-change: transform;
+  top: -48px;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.625rem 1rem;
+  background: var(--ink-800);
+  color: var(--paper);
+  border: 1px solid var(--ink-600);
+  border-radius: 0.5rem;
+  transition: top 150ms ease;
 }
-
-@keyframes floatParticle {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(25px, -40px, 0);
-  }
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-/* ----------------------------
-   Soft Gradient Float
------------------------------ */
-@keyframes floatGradient {
-  0%, 100% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  50% {
-    transform: translate3d(-40px, -30px, 0) scale(1.05);
-  }
-}
-
-/* ----------------------------
-   Mouse Ripple (Click)
------------------------------ */
-.ripple-effect {
-  position: fixed;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(99, 102, 241, 0.25),
-    transparent 70%
-  );
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  animation: ripple 0.8s ease-out forwards;
-  z-index: 9999;
-}
-
-@keyframes ripple {
-  from {
-    transform: translate(-50%, -50%) scale(0);
-    opacity: 0.8;
-  }
-  to {
-    transform: translate(-50%, -50%) scale(8);
-    opacity: 0;
-  }
-}
-
-/* ----------------------------
-   Mouse Trail Glow
------------------------------ */
-.mouse-trail {
-  position: absolute;
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(139, 92, 246, 0.06),
-    transparent 70%
-  );
-  filter: blur(18px);
-  pointer-events: none;
-  animation: trailPulse 3s infinite ease-in-out;
-}
-
-@keyframes trailPulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.25;
-  }
-  50% {
-    transform: scale(1.4);
-    opacity: 0.1;
-  }
-}
-
-/* ----------------------------
-   Particle Interaction Pulse
------------------------------ */
-.particle.active {
-  animation: particlePulse 0.4s ease-in-out;
-}
-
-@keyframes particlePulse {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 0 6px currentColor;
-  }
-  50% {
-    transform: scale(1.4);
-    box-shadow: 0 0 18px currentColor;
-  }
-}
-
-/* ----------------------------
-   Connection Lines
------------------------------ */
-.connection-line {
-  position: absolute;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(99, 102, 241, 0.15),
-    transparent
-  );
-  transform-origin: 0 0;
-  opacity: 0.4;
-}
-
-/* ----------------------------
-   Reduced Motion Support ♿
------------------------------ */
-@media (prefers-reduced-motion: reduce) {
-  .particle,
-  .mouse-trail,
-  .ripple-effect {
-    animation: none !important;
-  }
+.skip-link:focus {
+  top: 0.75rem;
 }

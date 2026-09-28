@@ -1,29 +1,25 @@
-import React from 'react';
-import './App.css';
-import { BackgroundEffects, CustomCursor, NavigationDots, ScrollIndicator } from './components/Layout';
-import { Hero, Projects, Skills, About, Testimonials, BlogPreview, Contact, Footer } from './components/Sections';
+import Header from './components/Layout/Header';
+import Hero from './components/Sections/Hero';
+import Work from './components/Sections/Work';
+import Experience from './components/Sections/Experience';
+import Capabilities from './components/Sections/Capabilities';
+import About from './components/Sections/About';
+import Contact from './components/Sections/Contact';
+import Footer from './components/Sections/Footer';
 
-function App() {
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0a0f2e] via-[#0f172a] to-[#1e1b4b] text-white font-sans overflow-hidden">
-      <BackgroundEffects />
-      <CustomCursor />
-      <NavigationDots />
-      <ScrollIndicator />
-      
-      <main>
+    <>
+      <Header />
+      <main id="main">
         <Hero />
+        <Work />
+        <Experience />
+        <Capabilities />
         <About />
-        <Skills />
-        <Projects />
-        <Testimonials />
-        <BlogPreview />
         <Contact />
       </main>
-      
       <Footer />
-    </div>
+    </>
   );
 }
-
-export default App;

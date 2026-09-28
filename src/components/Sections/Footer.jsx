@@ -1,43 +1,33 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import { site } from '../../data/site';
 
-const Footer = () => {
+export default function Footer() {
   return (
-    <footer className="py-8 px-4 border-t border-gray-800">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          {/* Left Text */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-gray-500 text-sm">
-              © {new Date().getFullYear()} Samuel M. All rights reserved.
-            </p>
-            <p className="text-gray-600 text-sm mt-1">
-              Built with React, Tailwind CSS & Framer Motion
-            </p>
-          </motion.div>
-
-          {/* Back to Top */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-gray-500 text-sm"
-          >
-            <a
-              href="#hero"
-              className="hover:text-indigo-400 transition-colors"
-            >
-              Back to Top ↑
-            </a>
-          </motion.div>
-        </div>
+    <footer className="border-t border-ink-700/60 py-10">
+      <div className="mx-auto flex max-w-content flex-col items-start justify-between gap-4 px-5 text-sm text-paper-faint md:flex-row md:items-center md:px-8">
+        <p>
+          © {new Date().getFullYear()} {site.name}. Built with React, Vite, and Tailwind CSS — no
+          template.
+        </p>
+        <nav aria-label="Footer">
+          <ul className="flex items-center gap-6">
+            <li>
+              <a href={`${site.github}?tab=repositories`} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-paper">
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${site.email}`} className="transition-colors hover:text-paper">
+                Email
+              </a>
+            </li>
+            <li>
+              <a href="#top" className="transition-colors hover:text-paper">
+                Back to top ↑
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

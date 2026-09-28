@@ -1,69 +1,133 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FiExternalLink, FiGithub } from 'react-icons/fi';
-import AnimatedCard from './AnimatedCard';
+import { useId, useState } from 'react';
+import { FiArrowUpRight, FiChevronDown, FiExternalLink, FiGithub } from 'react-icons/fi';
+import Reveal from '../Shared/Reveal';
 
-const ProjectCard = ({ project, index }) => {
+/**
+ * ProjectCard — a case study, not a screenshot card.
+ *
+ * Progressive disclosure: recruiters see title + tagline + stack; engineers
+ * expand for problem, role, architecture, and decisions. Links only render
+ * when real URLs exist — no "#" hrefs.
+ */
+export default function ProjectCard({ project, index }) {
+  const [open, setOpen] = useState(false);
+  const detailsId = useId();
+
   return (
-    <AnimatedCard delay={index * 0.1}>
-      <div className="p-6">
-        {/* Project Image */}
-        <div className="h-48 mb-4 rounded-xl overflow-hidden">
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
-          />
-        </div>
+    <Reveal as="article" delay={index * 60} className="group">
+      <div className="h-full rounded-xl border border-ink-700 bg-ink-850 transition-colors hover:border-ink-600">
+        <div className="p-6 md:p-8">
+          <div className="flex items-start justify-between gap-4">
+            <h3 className="text-xl font-semibold text-paper">
+              {project.title}
+              {project.featured && (
+                <span className="ml-3 align-middle font-mono text-xs font-normal uppercase tracking-wider text-accent">
+                  Featured
+                </span>
+              )}
+            </h3>
+            {/* Only render links that point somewhere real. */}
+            {(project.demoUrl || project.githubUrl) && (
+              <div className="flex shrink-0 gap-2">
+                {project.demoUrl && (
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${project.title} — live demo`}
+                    className="flex h-10 w-10 items-center justify-center rounded-lg border border-ink-600 text-paper-dim transition-colors hover:border-accent hover:text-accent"
+                  >
+                    <FiExternalLink aria-hidden="true" />
+                  </a>
+                )}
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${project.title} — source code`}
+                    className="flex h-10 w-10 items-center justify-center rounded-lg border border-ink-600 text-paper-dim transition-colors hover:border-accent hover:text-accent"
+                  >
+                    <FiGithub aria-hidden="true" />
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
 
-        {/* Project Info */}
-        <h3 className="text-2xl font-bold mb-2 text-white group-hover:text-indigo-300 transition-colors">
-          {project.title}
-        </h3>
-        <p className="text-gray-400 mb-4">
-          {project.description}
-        </p>
+          <p className="mt-3 text-paper-dim">{project.tagline}</p>
 
-        {/* Tech Tags */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className="px-3 py-1 bg-indigo-500/10 border border-indigo-500/30 rounded-full text-sm text-indigo-300"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
+          {/* Skim layer: the stack. */}
+          <ul className="mt-5 flex flex-wrap gap-2" aria-label="Technologies used">
+            {project.tags.map((tag) => (
+              <li
+                key={tag}
+                className="rounded-md border border-ink-700 px-2.5 py-1 font-mono text-xs text-paper-dim"
+              >
+                {tag}
+              </li>
+            ))}
+          </ul>
 
-        {/* Action Buttons */}
-        <div className="flex gap-3">
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href={project.demoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 py-2 rounded-xl bg-gradient-to-r from-indigo-500/20 to-purple-500/20 border border-indigo-500/30 text-indigo-300 font-semibold hover:bg-indigo-500/30 transition-all text-center flex items-center justify-center gap-2"
+          {/* Deep layer: expandable case study. */}
+          <button
+            type="button"
+            aria-expanded={open}
+            aria-controls={detailsId}
+            onClick={() => setOpen((v) => !v)}
+            className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:text-accent-dim"
           >
-            <FiExternalLink />
-            Live Demo
-          </motion.a>
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 py-2 rounded-xl border border-gray-700 text-gray-300 font-semibold hover:border-gray-600 hover:text-white transition-all text-center flex items-center justify-center gap-2"
-          >
-            <FiGithub />
-            Code
-          </motion.a>
+            {open ? 'Hide details' : 'Read the build'}
+            <FiChevronDown
+              aria-hidden="true"
+              className={`transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
+            />
+          </button>
+
+          {open && (
+            <div id={detailsId} className="mt-5 space-y-5 border-t border-ink-700 pt-5">
+              <CaseBlock label="Problem" text={project.problem} />
+              <CaseBlock label="My role" text={project.role} />
+              <CaseBlock label="What I built" text={project.solution} />
+
+              {project.architecture?.length > 0 && (
+                <div>
+                  <h4 className="font-mono text-xs uppercase tracking-wider text-paper-faint">Architecture</h4>
+                  <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-paper-dim">
+                    {project.architecture.map((line) => (
+                      <li key={line}>{line}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {project.decisions?.length > 0 && (
+                <div>
+                  <h4 className="font-mono text-xs uppercase tracking-wider text-paper-faint">
+                    Decisions & tradeoffs
+                  </h4>
+                  <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-paper-dim">
+                    {project.decisions.map((line) => (
+                      <li key={line}>{line}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              <CaseBlock label="Outcome" text={project.outcome} />
+            </div>
+          )}
         </div>
       </div>
-    </AnimatedCard>
+    </Reveal>
   );
-};
+}
 
-export default ProjectCard;
+function CaseBlock({ label, text }) {
+  return (
+    <div>
+      <h4 className="font-mono text-xs uppercase tracking-wider text-paper-faint">{label}</h4>
+      <p className="mt-1 text-sm leading-relaxed text-paper-dim">{text}</p>
+    </div>
+  );
+}
